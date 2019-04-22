@@ -19,6 +19,3 @@ async function fetchGoogleAndReturnImagesLinks(query) {
 }
 
 fetchGoogleAndReturnImagesLinks('landscape').then(data => console.log(data))
-
-var samuel = 'troxa';
-console.log(`samule é um ${samuel}`)
