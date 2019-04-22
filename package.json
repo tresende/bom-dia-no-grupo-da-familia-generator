@@ -1,0 +1,14 @@
+{
+  "name": "bom-dia-generator",
+  "version": "1.0.0",
+  "description": "Gerador de bom dia para a sua tia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thiago Resende",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^39.2.0"
+  }
+}
