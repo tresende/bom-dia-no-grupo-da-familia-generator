@@ -1,3 +1,4 @@
 applications:
  - name: bom-dia-no-grupo-da-familia
-   memory: 128M
+   random-route: true
+   memory: 256M   
