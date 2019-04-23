@@ -10,7 +10,7 @@ module.exports = {
                 cx: process.env.searchEngineId,
                 q: query,
                 searchType: 'image',
-                num: 2
+                num: process.env.images
             }).then(response => {
                 response.data.items.map((item, index) => {
                     const options = {
