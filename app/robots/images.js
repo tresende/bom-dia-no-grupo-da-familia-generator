@@ -13,21 +13,16 @@ module.exports = {
                     searchType: 'image',
                     num: process.env.images
                 }).then(response => {
+                    const promises = [];
                     response.data.items.map((item, index) => {
                         const options = {
                             url: item.link,
                             dest: `./dist/images/${index}.png`
                         }
-                        download.image(options)
-                            .then(({ filename, image }) => {
-                                if (index == response.data.items.length - 1) {
-                                    resolve();
-                                }
-                            })
-                            .catch((err) => {
-                                console.error(err)
-                            })
+                        let imageFuture = download.image(options);
+                        promises.push(imageFuture);
                     });
+                    Promise.all(promises).then((values) => resolve());
                 }).catch(() => {
                     resolve();
                 });

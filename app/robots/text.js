@@ -7,13 +7,15 @@ module.exports = {
             try {
                 const path = './dist/images/';
                 Jimp.read(path + 'main.png').then(src => {
+                    const promises = [];
                     fs.readdir(path, (err, items) => {
                         items.map((file, index) => {
                             const fileName = path + file;
                             if (file == 'main.png')
                                 return;
-                            Jimp.read(fileName)
+                            var textFuture = Jimp.read(fileName)
                                 .then((image) => {
+                                    console.log(fileName);
                                     image.resize(800, Jimp.AUTO)
                                         .quality(50)
                                         .write(fileName);
@@ -24,21 +26,15 @@ module.exports = {
                                         .write(fileName);
                                     return image;
                                 })
-                                .then(() => {
-                                    //DS store no mac
-                                    if (index == items.length - 1) {
-                                        resolve()
-                                    }
-                                }).catch((e) => {
-                                    resolve()
+                                .catch((e) => {
                                 });
+                            promises.push(textFuture);
                         });
+                        Promise.all(promises).then((values) => resolve());
                     });
-                }).catch((e) => {
-                    resolve()
-                });
-            } catch (error) {
-                resolve()
+                })
+            } catch (e) {
+                resolve();
             }
         });
     }

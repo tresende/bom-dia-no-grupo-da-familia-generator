@@ -6,5 +6,4 @@ const text = require('./app/robots/text');
 
 images.getImages('landscape')
     .then(() => text.writeOnImage())
-    // .then(() => );
-    server.init()
+    .then(() => server.init());
