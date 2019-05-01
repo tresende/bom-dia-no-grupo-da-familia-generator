@@ -5,7 +5,7 @@ const app = express();
 
 module.exports = {
     init: () => {
-        app.use(express.static(__dirname + "../../public"));
+        app.use(express.static(__dirname + "../../dist"));
         app.listen(appEnv.port, "0.0.0.0", () => console.log(`server starting on ${appEnv.url}`));
         app.get('/number', (req, res) => {
             var id = Math.floor(Math.random() * Math.floor(process.env.images));
