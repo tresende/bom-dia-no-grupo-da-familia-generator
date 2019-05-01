@@ -5,7 +5,7 @@ module.exports = {
     writeOnImage: async () => {
         return await new Promise((resolve, reject) => {
             try {
-                const path = './public/images/';
+                const path = './dist/images/';
                 Jimp.read(path + 'main.png').then(src => {
                     fs.readdir(path, (err, items) => {
                         items.map((file, index) => {

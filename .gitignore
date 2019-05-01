@@ -85,3 +85,4 @@ typings/
 credentials/
 images/
 .DS_Store
+dist/

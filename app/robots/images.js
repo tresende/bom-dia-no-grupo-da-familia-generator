@@ -16,7 +16,7 @@ module.exports = {
                     response.data.items.map((item, index) => {
                         const options = {
                             url: item.link,
-                            dest: `./public/images/${index}.png`
+                            dest: `./dist/images/${index}.png`
                         }
                         download.image(options)
                             .then(({ filename, image }) => {
